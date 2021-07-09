@@ -1,4 +1,4 @@
-FROM blacklabelops/alpine:3.8
+FROM alpine:3.8
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # logrotate version (e.g. 3.9.1-r0)
@@ -16,6 +16,8 @@ RUN export CONTAINER_USER=logrotate && \
       tar \
       gzip \
       wget \
+      tini \
+      bash \
       tzdata && \
     if  [ "${LOGROTATE_VERSION}" = "latest" ]; \
       then apk add logrotate ; \
